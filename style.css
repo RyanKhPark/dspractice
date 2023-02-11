@@ -1,0 +1,119 @@
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: bisque;
+    height: 100dvh;
+}
+
+#container {
+    width: 300px;
+    height: 600px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+#app {
+    width: 300px;
+    height: 400px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+#categories {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.none {
+    display: none;
+    visibility: hidden;
+    opacity: 0;
+}
+
+.none>div {
+    position: absolute;
+    cursor: pointer;
+}
+
+.none>div:nth-child(1) {
+    transform: translate(-100px, -100px);
+}
+
+.none>div:nth-child(2) {
+    transform: translate(0px, -100px);
+}
+
+.none>div:nth-child(3) {
+    transform: translate(100px, -100px);
+}
+
+.none>div:nth-child(4) {
+    transform: translate(150px, 0px);
+}
+
+.none>div:nth-child(5) {
+    transform: translate(100px, 100px);
+}
+
+.none>div:nth-child(6) {
+    transform: translate(0px, 100px);
+}
+
+.none>div:nth-child(7) {
+    transform: translate(-100px, 100px);
+}
+
+.none>div:nth-child(8) {
+    transform: translate(-150px, 0px);
+}
+
+.none>div:nth-child(9) {
+    transform: translate(0px, -50px);
+}
+
+.clicked {
+    border: 1px black solid;
+    padding: 3px 6px;
+    background-color: brown;
+    color: white;
+}
+
+.disable {
+    pointer-events: none;
+}
+
+
+
+.appearcircle {
+    display: block;
+    visibility: visible;
+    opacity: 1;
+    animation: fade 1s;
+    color: black;
+}
+
+@keyframes fade {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
