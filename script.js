@@ -1,66 +1,17 @@
-const costInput = document.getElementById('costinput');
-const categories = document.getElementById('categories');
-const category = categories.children
+// Array Chunks
 
+const givenArray = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+const chunkSize = 3;
 
-costInput.addEventListener('click', () => {
-    categories.classList.add('appearcircle');
-})
-
-const arr = [...category];
-
-for (let i = 0; i < category.length; i++) {
-
-    category[i].addEventListener('click', () => {
-        category[i].classList.toggle('clicked');
-
-        if (arr.find(s => s.classList[0] === 'clicked')) {
-
-            let exClicked = arr.filter(s => s.classList[0] !== 'clicked');
-
-            // forEach, map Read thoroughly
-            exClicked.forEach(el => el.classList.add('disable'))
-            // let arrMap = arr.map(el => el.classList.add('disable'))
-
-            console.log(exClicked);
-            // console.log(arrMap);
-
-        } else {
-            arr.forEach(el => el.classList.remove('disable'))
-        }
-
-
-
-        //         if (arr.every(s => s.classList[0] !== 'clicked')) {
-        //     arr.every(el => el.classList[0] = '')
-        // };
-
-        // arr.filter(s => s.classList[0] !== 'clicked').map(el => el.classList.toggle('disable'))
-
-
-        console.log(arr)
-
-    })
-
+function chunkArray(array , chuncksize){
+ let chuncked = [];
+ let idx = 0;
+ 
+ while (idx < givenArray.length){
+	chuncked.push(givenArray.splice(idx, idx+chuncksize))
+ }
+ console.log(chuncked)
+ return chuncked
 }
 
-
-// if (arr.every(s => s.classList[0] !== 'clicked')) {
-//     arr.every(el => el.classList[0] = '')
-// };
-
-console.log(arr)
-
-// if (arr.every(el => el.classList[0] != 'clicked', console.log("I got to if", arr))) {
-//     arr.every(el => {
-//         console.log("Came to every: ", arr)
-//         el.classList[0] = ''
-//     })
-// }
-
-
-// if (arr.filter(s => s.classList[0] !== 'clicked')) {
-//     arr.filter(s => s.classList[0]);
-// } else {
-
-// }
+chunkArray(givenArray, chunkSize)
