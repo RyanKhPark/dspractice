@@ -15,3 +15,24 @@ function chunkArray(array , chuncksize){
 }
 
 chunkArray(givenArray, chunkSize)
+
+// Two Sums
+
+function twoSums(nums, target) {
+    if(nums.length < 1) {
+        return;
+    }
+    const hash = {};
+    
+    for (let i = 0; i < nums.length; i++) {
+        hash[target - nums[i]] = i;
+        
+        
+        if (typeof hash[nums[i]] === "number" ) {
+            console.log([hash[nums[i]], i]);
+            return [hash[nums[i]], i];
+        }
+    }
+    return [];
+}
+
