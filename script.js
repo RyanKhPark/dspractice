@@ -39,38 +39,38 @@ function twoSums(nums, target) {
 // Linked List
 // Linear data structure, nodes, data && reference
 
-class Node {
-	constructor (val, next = null){
-  	this.head = val;
-    this.next = next;
-  }
-}
+// class Node {
+// 	constructor (val, next = null){
+//   	this.head = val;
+//     this.next = next;
+//   }
+// }
 
-const node = new Node("data");
+// const node = new Node("data");
 
-class LinkedList{
-	constructor(){
-  	this.head = null;
-    this.length = 0;
-  }
+// class LinkedList{
+// 	constructor(){
+//   	this.head = null;
+//     this.length = 0;
+//   }
   
-  append(val){
-  	const node = new Node(val)
+//   append(val){
+//   	const node = new Node(val)
     
-    if (this.head === null) {
-	    	this.head = node
-    } else {
-  		let current = this.head;
-      console.log("current: ", current)
-  		while (current.next !== null) {
-  		    current = current.next;
-      }
+//     if (this.head === null) {
+// 	    	this.head = node
+//     } else {
+//   		let current = this.head;
+//       console.log("current: ", current)
+//   		while (current.next !== null) {
+//   		    current = current.next;
+//       }
      
-    }
-    this.length++;
-  }
+//     }
+//     this.length++;
+//   }
   
-}
+// }
   
 class Node {
    constructor(data) {
@@ -82,10 +82,12 @@ class Node {
 class LinkedList {
    constructor() {
        this.head = null;  // start with empty list
+       this.length = 0;
    }
 
    append(data) {
        const newNode = new Node(data); // create new node with data
+       this.length++;
 
        if (!this.head) {  // if list is empty
            this.head = newNode; // new node becomes head
@@ -96,15 +98,36 @@ class LinkedList {
        let current = this.head;
        while (current.next) { // while there's a next node
            current = current.next; // move to next node
+          
        }
        current.next = newNode; // point last node to new node
+   }
+
+   pop(){
+    let current = this.head;
+
+    if(!current){
+      return;
+    }
+
+    console.log("Pop() current: ", current)
+
+    while (current.next){
+      current = current.next;
+      console.log("Pop() while loop: ", current)
+      if(current.next.next === null){
+        current.next = null;
+        
+      }
+    }
+    this.length--;
+    return;
    }
 
    // Print the list
    print() {
        let current = this.head;
        while (current) {
-           console.log(current.data);
            current = current.next;
        }
    }
@@ -113,6 +136,11 @@ class LinkedList {
 // Example usage:
 const list = new LinkedList();
 list.append(10);  // list: 10 -> null
+console.log(list);
 list.append(20);  // list: 10 -> 20 -> null
+console.log(list);
 list.append(30);  // list: 10 -> 20 -> 30 -> null
+console.log(list);
 list.print();     // prints: 10, 20, 30
+list.pop();
+console.log(list.length);
