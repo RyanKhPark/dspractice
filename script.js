@@ -10,7 +10,7 @@ function chunkArray(array , chuncksize){
  while (idx < givenArray.length){
 	chuncked.push(givenArray.splice(idx, idx+chuncksize))
  }
- console.log(chuncked)
+//  console.log(chuncked)
  return chuncked
 }
 
@@ -29,7 +29,7 @@ function twoSums(nums, target) {
         
         
         if (typeof hash[nums[i]] === "number" ) {
-            console.log([hash[nums[i]], i]);
+            // console.log([hash[nums[i]], i]);
             return [hash[nums[i]], i];
         }
     }
@@ -134,13 +134,50 @@ class LinkedList {
 }
 
 // Example usage:
-const list = new LinkedList();
-list.append(10);  // list: 10 -> null
-console.log(list);
-list.append(20);  // list: 10 -> 20 -> null
-console.log(list);
-list.append(30);  // list: 10 -> 20 -> 30 -> null
-console.log(list);
-list.print();     // prints: 10, 20, 30
-list.pop();
-console.log(list.length);
+// const list = new LinkedList();
+// list.append(10);  // list: 10 -> null
+// console.log(list);
+// list.append(20);  // list: 10 -> 20 -> null
+// console.log(list);
+// list.append(30);  // list: 10 -> 20 -> 30 -> null
+// console.log(list);
+// list.print();     // prints: 10, 20, 30
+// list.pop();
+// console.log("Latest list: ", list);
+// console.log(list.length);
+
+// Stack
+
+class Stack {
+    constructor() {
+        this.stack = [];
+    }
+
+    push(item) {
+        return this.stack.push(item);
+    }
+
+    pop() {
+        if(this.stack.length === 0) {
+            return "Stack is empty";
+        }
+        return this.stack.pop();
+    }
+    peek(){
+        if(this.stack.length === 0) {
+            return "Stack is empty";
+        }
+        return this.stack[this.stack.length - 1];
+    }
+
+    isEmpty() {
+        return this.stack.length === 0;
+    }
+
+    shift() {
+        if(this.stack.length === 0) {
+            return "Stack is empty";
+        }
+        return this.stack.shift();
+    }
+}
